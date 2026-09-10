@@ -1,0 +1,69 @@
+name: "🛠 개발 Task"
+description: "실제 작업 단위 티켓입니다. 개발자 또는 기획자가 작성합니다."
+title: "[Task] "
+type: "Task"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        한 Task는 **1~3일 안에 끝나고, PR 하나로 닫히는 크기**가 적당합니다.
+        더 크면 쪼개고, 30분이면 끝나면 다른 Task에 합치세요.
+
+  - type: textarea
+    id: what
+    attributes:
+      label: 작업 내용
+      description: 무엇을 만드는지. 코드 레벨로 구체적으로 적어주세요.
+      placeholder: |
+        온보딩 2단계 "목적 선택" 화면 구현
+        - 카드형 선택 UI (단일 선택, 5개 옵션)
+        - 선택 시 POST /api/onboarding/purpose 호출
+        - skip 버튼으로 건너뛰기 가능
+    validations:
+      required: true
+
+  - type: textarea
+    id: dod
+    attributes:
+      label: 완료 조건 (DoD)
+      description: 체크박스로. 이게 전부 체크되면 PR을 올릴 수 있어야 합니다.
+      value: |
+        - [ ] 
+        - [ ] 
+        - [ ] 테스트 작성
+        - [ ] 로컬에서 동작 확인
+
+  - type: textarea
+    id: spec
+    attributes:
+      label: 참고 자료
+      description: 디자인, API 스펙, 관련 코드 위치 등
+      placeholder: |
+        - 기획서 : https://docs.google.com/document/d/xxx
+        - Figma: 
+        - API 스펙: PRD 8장
+        - 관련 PR : #123
+        - ERD 문서 , migrate 파일 위치등등
+
+  - type: textarea
+    id: depends
+    attributes:
+      label: 선행 조건 / 블로커
+      description: 다른 Task가 먼저 끝나야 한다면 이슈 번호를 적어주세요. 없으면 비워두세요.
+      placeholder: "#31 (API 먼저 배포 필요)"
+
+  - type: input
+    id: estimate
+    attributes:
+      label: 예상 소요 (일) ex) 0.5, 1, 2 ~
+
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        **작업 시작할 때**
+        1. 우측 `Assignees` 에 본인 지정
+        2. 우측 `Development` → **Create a branch** 클릭 (브랜치 자동 생성 + 연결)
+        3. Project에서 Status를 `In Progress` 로 변경
+        4. PR 본문에 `Closes #이슈번호` 작성, base 브랜치는 `dev`

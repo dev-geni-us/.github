@@ -1,0 +1,67 @@
+name: "🐛 버그"
+description: "동작하지 않는 것을 신고합니다."
+title: "[Bug] "
+type: "Bug"
+body:
+  - type: dropdown
+    id: env
+    attributes:
+      label: 발생 환경
+      options:
+        - prod (운영)
+        - stage
+        - dev
+        - 로컬
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: 심각도
+      options:
+        - "P0 - 서비스 이용 불가, 즉시 대응"
+        - "P1 - 주요 기능 장애, 우회 불가"
+        - "P2 - 불편하지만 우회 가능"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 재현 방법
+      value: |
+        1. 
+        2. 
+        3. 
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 기대 동작 / 실제 동작
+      value: |
+        **기대:** 
+        **실제:** 
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 스크린샷 / 로그
+      description: 이미지는 드래그해서 붙여넣을 수 있습니다. 에러 로그가 있으면 함께 넣어주세요.
+
+  - type: input
+    id: client
+    attributes:
+      label: 브라우저 / OS / 기기
+      placeholder: "Chrome 129 / macOS 15 / MacBook Pro"
+
+  - type: input
+    id: occurred
+    attributes:
+      label: 발생 시각
+      description: 서버 로그 조회에 필요합니다.
+      placeholder: "2026-09-07 14:30 KST"

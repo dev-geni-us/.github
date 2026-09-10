@@ -1,0 +1,76 @@
+name: "🎯 Epic"
+description: "PRD 단위의 기능 묶음을 등록합니다. 기획자가 작성합니다."
+title: "[Epic] "
+type: "Epic"
+labels: ["epic"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Epic은 **"사용자에게 전달되는 하나의 완결된 가치"** 단위입니다.
+        2주 안에 끝나면 Epic이 아니라 Feature일 가능성이 높습니다.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 배경 / 문제
+      description: 왜 지금 이걸 하는지. 데이터나 사용자 목소리가 있으면 함께 적어주세요.
+      placeholder: |
+        - 신규 가입자의 40%가 온보딩 2단계에서 이탈 (2026-08 GA 기준)
+        - CS 문의 중 "가입은 했는데 뭘 해야 할지 모르겠다" 유형이 월 30건
+    validations:
+      required: true
+
+  - type: textarea
+    id: goal
+    attributes:
+      label: 목표
+      description: 이 Epic이 끝났을 때 무엇이 달라지는지 한두 문장으로.
+      placeholder: "신규 가입자가 첫 세션 안에 핵심 기능 1개를 사용해보게 만든다."
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: 범위
+      description: 포함되는 것과 이번에 하지 않는 것을 명시해주세요. Out of scope가 특히 중요합니다.
+      value: |
+        **In scope**
+        -
+        -
+
+        **Out of scope**
+        -
+    validations:
+      required: true
+
+  - type: textarea
+    id: risk
+    attributes:
+      label: 리스크 / 미결 사항
+      description: 아직 결정 안 된 것, 외부 의존성, 기술적 우려. 없으면 "없음".
+      placeholder: |
+        - 결제 모듈 변경 필요 여부 미확정 → BE 검토 요청
+        - 디자인 시안 8/20 예정, 그 전까지 FE 착수 불가
+
+  - type: input
+    id: release
+    attributes:
+      label: 목표 릴리스
+      placeholder: "v1.4.0 / 2026-10-15"
+
+  - type: textarea
+    id: ref
+    attributes:
+      label: 참고자료 (관련 Epic 기획서, 디자인 시안, 문서 링크등)
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        **생성 후 할 일**
+        1. 우측 사이드바에서 Project → `Product Board` 추가
+        2. `Service`, `Priority`, `Target Release` 필드 입력
+        3. 본문 아래 **Sub-issues** 에서 각 서비스 레포의 Task를 연결
+           (다른 레포 이슈는 `Add existing issue` → URL 붙여넣기)
